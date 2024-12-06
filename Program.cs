@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-using System;
+﻿using System;
 using System.IO;
 using System.Text.Json; // Json処理
 using System.Speech.Synthesis; // 音声合成
@@ -8,7 +6,6 @@ using NAudio.Wave; // NAudioのWave機能
 using Vosk; // Vosk音声認識ライブラリ
 using NAudio.CoreAudioApi;
 
-[System.Runtime.Versioning.SupportedOSPlatform("windows")]
 class Program
 {
   static void Main(string[] args)
