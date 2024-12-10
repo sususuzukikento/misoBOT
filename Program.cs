@@ -10,7 +10,8 @@ class Program
 {
   static void Main(string[] args)
   {
-    const string modelPath = "vosk-model-ja-0.22";
+    string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+    string modelPath = Path.Combine(baseDirectory, "..", "..", "..", "..", "vosk-model-ja-0.22");
 
     if (!Directory.Exists(modelPath))
     {
@@ -77,7 +78,7 @@ class Program
     {
       using (var synth = new SpeechSynthesizer())
       using (var waveStream = new MemoryStream())
-      using (var waveOut = new WaveOutEvent { DeviceNumber = GetDeviceIndex(outputDevice) })
+      using (var waveOut = new WaveOutEvent { DeviceNumber = GetDeviceIndex(outputDevice) + 1 })
       {
         synth.SetOutputToWaveStream(waveStream);
         synth.Speak(text);
